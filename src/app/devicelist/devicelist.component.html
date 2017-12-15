@@ -1,0 +1,126 @@
+<div class="row">
+   
+        <div class="col-md-3">
+         <div class="form-group">
+          <label for="host_name"><b>Host Name</b></label>
+          <input type="text" class="form-control" id="host_name" [(ngModel)]="device.hostname" placeholder="Enter Host Name">
+          <span class="error text-danger">{{hostError}}</span>
+        </div>
+        </div>
+       <div class="col-md-3">
+         <div class="form-group">
+          <label for="loop_back"><b>Loop back</b></label>
+          <input type="text" class="form-control" id="loop_back" [(ngModel)]="device.loopback" placeholder="Enter Loopback Name">
+          <span class="error text-danger">{{loopError}}</span>
+        </div>
+        
+        </div>
+      <div class="col-md-3">
+        <div class="form-group">
+        <br>
+        <input type="button" class="btn btn-xs btn-primary" value="{{button}}" (click)="addevice()" style="margin-top: 5px;">
+      
+      </div>
+      </div>
+      </div> 
+
+
+<div class="row">
+  
+  <table class="table table-bordered table-striped">
+    <thead>
+      <tr>
+        <th>SR NO</th>
+        <th>Host Name</th>
+        <th>LoopBack</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr  *ngFor="let device of deviceList;let i=index" >
+        <td>{{i+1}}</td>
+        <td>{{device.hostname}}</td>
+        <td>{{device.loopback}}</td>
+        <td><a href="#" (click)="deviceEdit(device)" class="btn btn-xs btn-primary"><i class="fa fa-pencil" aria-hidden="true"></i></a>
+          <a href="#" (click)="delete(device)" class="btn btn-xs btn-primary"><i class="fa fa-trash" aria-hidden="true"></i></a>
+          <a href="#" data-toggle="modal" data-target="#myModal" (click)="viewInterface(device)" class="btn btn-xs btn-primary"><i class="fa fa-eye" aria-hidden="true"></i></a>
+        </td>
+
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+
+
+<div id="myModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+  
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+            <h3>Edit Interface</h3>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        
+        </div>
+        <div class="modal-body">
+            <div class="row">
+                
+                     <div class="col-md-5">
+                      <div class="form-group">
+                       <label for="host_name"><b>Interface</b></label>
+                       <input type="text" class="form-control" id="host_name" [(ngModel)]="interface.interface" placeholder="Interface">
+                       <span class="error text-danger">{{interfaceError}}</span>
+                     </div>
+                     </div>
+                    <div class="col-md-5">
+                      <div class="form-group">
+                       <label for="loop_back"><b>IP</b></label>
+                       <input type="text" class="form-control" id="loop_back" [(ngModel)]="interface.ip" placeholder="IP">
+                       <span class="error text-danger">{{ipError}}</span>
+                     </div>
+                     
+                     </div>
+                   <div class="col-md-2">
+                     <div class="form-group">
+                     <br>
+                     <input type="button" style="margin-top: 5px" class="btn btn-xs btn-primary" value="{{ibutton}}" (click)="addeviceinterfce(interface)">
+                   
+                   </div>
+                   </div>
+                   </div> 
+            <div class="row">
+                
+            
+                <table class="table table-bordered table-striped">
+                  <thead>
+                    <tr>
+                      <th>SR NO</th>
+                      <th>Interface</th>
+                      <th>IP</th>
+                      <th>Action</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr  *ngFor="let device of interfaceList;let i=index" >
+                      <td>{{i+1}}</td>
+                      <td>{{device.interface}}</td>
+                      <td>{{device.ip}}</td>
+                      <td><a href="#" (click)="editinterface(device)" class="btn btn-xs btn-primary"><i class="fa fa-pencil" aria-hidden="true"></i></a>
+                        <a href="#" (click)="deleteinterface(device)" class="btn btn-xs btn-primary"><i class="fa fa-trash" aria-hidden="true"></i></a>
+                       
+                      </td>
+              
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+  
+    </div>
+  </div>

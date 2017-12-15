@@ -1,3 +1,25 @@
-<p>
-  interface-input works!
-</p>
+<div class="row">
+    
+    <table class="table">
+      <thead>
+        <tr>
+          <th>SR NO</th>
+          <th>Host Name</th>
+          <th>LoopBack</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr  *ngFor="let device of interfaceList;let i=index" >
+          <td>{{i+1}}</td>
+          <td>{{device.interface}}</td>
+          <td>{{device.ip}}</td>
+          <td><a href="#" (click)="editinterface(device)">edit</a>
+            <a href="#" (click)="deleteinterface(device)">delete</a>
+           
+          </td>
+  
+        </tr>
+      </tbody>
+    </table>
+  </div>

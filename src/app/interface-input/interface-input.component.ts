@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,Input } from '@angular/core';
 
 @Component({
   selector: 'app-interface-input',
@@ -8,8 +8,9 @@ import { Component, OnInit } from '@angular/core';
 export class InterfaceInputComponent implements OnInit {
 
   constructor() { }
-
+@Input () device;
   ngOnInit() {
+    console.log(this.device);
   }
 
 }
